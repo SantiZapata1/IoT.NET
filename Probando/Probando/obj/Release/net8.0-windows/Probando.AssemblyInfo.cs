@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Probando")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70ab11012ca60bb31a0c382ca0e680e322bcca1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+912675fd98bde32addad5500eed7ea67aef6b39c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Probando")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Probando")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

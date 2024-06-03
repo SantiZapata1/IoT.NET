@@ -1,12 +1,14 @@
 String inputString="";
 bool stringComplete=false;
 
+int pin_led=13;
+
 void setup() 
 {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(2, OUTPUT);
-  digitalWrite(2, false);
+  pinMode(pin_led, OUTPUT);
+  digitalWrite(pin_led, false);
 }
 
 void loop() 
@@ -19,9 +21,9 @@ void loop()
     Serial.println(inputString);
 
     if(inputString.equals("$On")){
-      digitalWrite(2, true);
+      digitalWrite(pin_led, true);
     }else if(inputString.equals("$Off")){
-      digitalWrite(2, false);
+      digitalWrite(pin_led, false);
     }
 
     inputString ="";

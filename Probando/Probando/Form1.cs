@@ -11,69 +11,116 @@ namespace Probando
             InitializeComponent();
         }
 
-        private void labelLed_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void buttonEncender_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                m_serialPort.WriteLine("$On");
-                labelLed.Text = "On";
-                labelLed.BackColor = Color.Lime;
-                buttonEncender.Enabled = false;
-                buttonApagar.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            //MessageBox.Show("Cargado exitosamente");
+            buttonOpen.Enabled = true;
+            buttonClose.Enabled = false;
+            buttonEncender.Enabled = false;
             buttonApagar.Enabled = false;
-            try
-            {
+            comboBoxBaud.Text = "9600";
+            progressBarConnection.Value = 0;
+            pictureBoxLed.Image = Properties.Resources.ledOff2;
 
-                m_serialPort.PortName = "COM3";
-                m_serialPort.BaudRate = 9600;
-                m_serialPort.Open();
-            }
-            catch (Exception error)
+            string[] portList = SerialPort.GetPortNames();
+            comboBoxPort.Items.AddRange(portList);
+
+            
+        }
+
+
+
+
+
+        private void buttonEncender_Click_1(object sender, EventArgs e)
+        {
+            if (m_serialPort.IsOpen)
             {
-                MessageBox.Show(error.Message);
+                try
+                {
+
+                    m_serialPort.WriteLine("$On");
+                    pictureBoxLed.Image = Properties.Resources.ledOn2;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            
+        }
+
+        private void buttonApagar_Click_1(object sender, EventArgs e)
+        {
+            if (m_serialPort.IsOpen)
+            {
+                try
+                {
+
+                    m_serialPort.WriteLine("$Off");
+                    pictureBoxLed.Image = Properties.Resources.ledOff2;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
-        private void buttonApagar_Click(object sender, EventArgs e)
+        private void buttonOpen_Click(object sender, EventArgs e)
         {
             try
             {
-                buttonApagar.Enabled=false;
-                buttonEncender.Enabled=true;
-                m_serialPort.WriteLine("$Off");
-                labelLed.Text = "Off";
-                labelLed.BackColor = Color.LightCoral;
+                m_serialPort.PortName= comboBoxPort.Text;
+                m_serialPort.BaudRate = Convert.ToInt32(comboBoxBaud.Text);
+                m_serialPort.Open();
+                buttonOpen.Enabled = false;
+                buttonClose.Enabled = true;
+                buttonEncender.Enabled = true;
+                buttonApagar.Enabled = true;
+                progressBarConnection.Value = 100;
+                comboBoxBaud.Enabled = false;
+                comboBoxPort.Enabled = false;
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
-        private void groupBox1_Enter_1(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
+            if (m_serialPort.IsOpen)
+            {
+                try
+                {
+                    m_serialPort.WriteLine("#OFF");
+                    pictureBoxLed.Image = Properties.Resources.ledOff2;
+                    m_serialPort.Close();
+
+                    buttonOpen.Enabled = true;
+                    buttonClose.Enabled = false;
+                    buttonEncender.Enabled = false;
+                    buttonApagar.Enabled = false;
+                    progressBarConnection.Value = 0;
+                    comboBoxBaud.Enabled = true;
+                    comboBoxPort.Enabled = true;
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            
+
+
 
         }
     }

@@ -28,25 +28,38 @@ void setup() {
 
 void loop() {
 
-  while(Serial.available())
-  {
+  leerPuertoSerie();
+  leerPuertoBluetooth();
+
+  delay(20);
+}
+void leerPuertoSerie() {
+  while (Serial.available()) {
 
     char inChar = (char)Serial.read();
-    if(inChar == '\n'){
-      stringComplete=true;
+    if (inChar == '\n') {
+      stringComplete = true;
 
-    }else{
+    } else {
       inputString += inChar;
     }
-
   }
+  if (stringComplete) {
+    inputString.trim();
+    Serial.println(inputString);
 
-  if (Serial.available()) {
-    bluetooth.write(Serial.read());
+    if (inputString.equals("1")) {
+      digitalWrite(pin_led, true);
+    } else if (inputString.equals("0")) {
+      digitalWrite(pin_led, false);
+    }
+
+    inputString = "";
+    stringComplete = false;
   }
-
-
-  if (bluetooth.available()) {
+}
+void leerPuertoBluetooth(){
+if (bluetooth.available()) {
     inputBlue = bluetooth.read();
     Serial.write(inputBlue);
 
@@ -57,25 +70,4 @@ void loop() {
       digitalWrite(pin_led, false);
     }
   }
-
-  if(stringComplete)
-  {
-    inputString.trim();
-    Serial.println(inputString);
-
-    if(inputString.equals("1")){
-      digitalWrite(pin_led, true);
-    }else if(inputString.equals("0")){
-      digitalWrite(pin_led, false);
-    }
-
-    inputString ="";
-    stringComplete= false;
-
-  }
-
-
-   
-
-  delay(20);
 }

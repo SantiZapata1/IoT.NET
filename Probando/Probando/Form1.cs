@@ -34,22 +34,23 @@ namespace Probando
             buttonApagar.Enabled = false;
             progressBarConnection.Value = 0;
             pictureBoxLed.Image = Properties.Resources.ledOff2;
+
         }
 
 
 
         private void buttonEncender_Click_1(object sender, EventArgs e)
         {
-            if (m_serialPort.IsOpen)
+            if(m_serialPort.IsOpen)
             {
                 try
                 {
 
-                    m_serialPort.WriteLine("0");
+                    m_serialPort.WriteLine("1");
                     pictureBoxLed.Image = Properties.Resources.ledOn2;
 
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -59,16 +60,16 @@ namespace Probando
 
         private void buttonApagar_Click_1(object sender, EventArgs e)
         {
-            if (m_serialPort.IsOpen)
+            if(m_serialPort.IsOpen)
             {
                 try
                 {
 
-                    m_serialPort.WriteLine("1");
+                    m_serialPort.WriteLine("0");
                     pictureBoxLed.Image = Properties.Resources.ledOff2;
 
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -89,10 +90,10 @@ namespace Probando
                 progressBarConnection.Value = 100;
                 comboBoxBaud.Enabled = false;
                 comboBoxPort.Enabled = false;
-
+                m_serialPort.WriteLine("0");
 
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -100,11 +101,11 @@ namespace Probando
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            if (m_serialPort.IsOpen)
+            if(m_serialPort.IsOpen)
             {
                 try
                 {
-                    m_serialPort.WriteLine("$Off");
+                    m_serialPort.WriteLine("0");
                     pictureBoxLed.Image = Properties.Resources.ledOff2;
                     m_serialPort.Close();
 
@@ -118,7 +119,7 @@ namespace Probando
 
 
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -130,7 +131,7 @@ namespace Probando
 
         }
 
-       
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -139,6 +140,19 @@ namespace Probando
 
         }
 
-       
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

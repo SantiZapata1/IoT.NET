@@ -48,11 +48,13 @@
             timer1 = new System.Windows.Forms.Timer(components);
             labelTitulo = new Label();
             pictureBoxLogo = new PictureBox();
+            Titulo = new GroupBox();
             LED1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLed).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
+            Titulo.SuspendLayout();
             SuspendLayout();
             // 
             // LED1
@@ -150,6 +152,7 @@
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "CONTROL LED";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // buttonApagar
             // 
@@ -229,7 +232,7 @@
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new Font("Segoe UI", 39F);
             labelTitulo.ForeColor = Color.PaleTurquoise;
-            labelTitulo.Location = new Point(130, 15);
+            labelTitulo.Location = new Point(130, 19);
             labelTitulo.Name = "labelTitulo";
             labelTitulo.Size = new Size(333, 70);
             labelTitulo.TabIndex = 12;
@@ -238,12 +241,24 @@
             // pictureBoxLogo
             // 
             pictureBoxLogo.Image = Properties.Resources.logoIot1;
-            pictureBoxLogo.Location = new Point(478, 5);
+            pictureBoxLogo.Location = new Point(469, 16);
             pictureBoxLogo.Name = "pictureBoxLogo";
-            pictureBoxLogo.Size = new Size(135, 99);
+            pictureBoxLogo.Size = new Size(111, 78);
             pictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxLogo.TabIndex = 10;
             pictureBoxLogo.TabStop = false;
+            // 
+            // Titulo
+            // 
+            Titulo.BackColor = Color.FromArgb(34, 34, 34);
+            Titulo.Controls.Add(labelTitulo);
+            Titulo.Controls.Add(pictureBoxLogo);
+            Titulo.Location = new Point(12, 4);
+            Titulo.Name = "Titulo";
+            Titulo.Size = new Size(715, 100);
+            Titulo.TabIndex = 10;
+            Titulo.TabStop = false;
+            Titulo.Enter += groupBox3_Enter;
             // 
             // Form1
             // 
@@ -251,8 +266,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(68, 68, 68);
             ClientSize = new Size(745, 492);
-            Controls.Add(pictureBoxLogo);
-            Controls.Add(labelTitulo);
+            Controls.Add(Titulo);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(LED1);
@@ -268,8 +282,9 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
+            Titulo.ResumeLayout(false);
+            Titulo.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -293,5 +308,6 @@
         private Label labelHora;
         private Label labelTitulo;
         private PictureBox pictureBoxLogo;
+        private GroupBox Titulo;
     }
 }

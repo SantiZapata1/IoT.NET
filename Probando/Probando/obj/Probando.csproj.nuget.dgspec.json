@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\.NET\\IoT.NET\\Probando\\Probando\\Probando.csproj": {}
+    "C:\\Users\\gonza\\Documents\\ESP32\\NET\\IoT.NET\\Probando\\Probando\\Probando.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\.NET\\IoT.NET\\Probando\\Probando\\Probando.csproj": {
+    "C:\\Users\\gonza\\Documents\\ESP32\\NET\\IoT.NET\\Probando\\Probando\\Probando.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\.NET\\IoT.NET\\Probando\\Probando\\Probando.csproj",
+        "projectUniqueName": "C:\\Users\\gonza\\Documents\\ESP32\\NET\\IoT.NET\\Probando\\Probando\\Probando.csproj",
         "projectName": "Probando",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\.NET\\IoT.NET\\Probando\\Probando\\Probando.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\.NET\\IoT.NET\\Probando\\Probando\\obj\\",
+        "projectPath": "C:\\Users\\gonza\\Documents\\ESP32\\NET\\IoT.NET\\Probando\\Probando\\Probando.csproj",
+        "packagesPath": "C:\\Users\\gonza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gonza\\Documents\\ESP32\\NET\\IoT.NET\\Probando\\Probando\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gonza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
